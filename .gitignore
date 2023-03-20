@@ -1,5 +1,10 @@
 files/
 files
+ideal_proxy_files*
+*.data
+*.lock
+*.lck
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
