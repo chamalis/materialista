@@ -22,7 +22,7 @@ class Client(abc.ABC):
 
     def __init__(self, **kwargs):
         # create a logger with the instance's class name
-        self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger = logging.getLogger(self.__class__.__name__ + ".log")
         # data structure holding the already visited urls
         self.visited: set[str] = self._load_visited()
         # a list of new urls from the baseurl search
@@ -80,7 +80,8 @@ class Client(abc.ABC):
                 with open(self.file, 'rb') as fin:
                     ret = pickle.load(fin)
         except FileNotFoundError:
-            print(f"Warning: {self.file} was not found")
+            # todo handle logging properly.
+            print(f"Info: {self.file} was not found")
 
         return ret
 
